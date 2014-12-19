@@ -16,7 +16,7 @@ body {
 	padding: 15px; 
 }
 #subtitle{
-	font-size: 25px;
+	font-size: 35px;
 	color: #0c76e8;
 	text-align: center;
 }
@@ -38,6 +38,7 @@ ul {
     padding: 0;
 	text-align: center;
 }
+
 li {
     display: inline;
 }
@@ -45,21 +46,62 @@ li {
 a { 
 	color: #0c76e8;
 	font-size: 20px;
+	text-decoration: none;
+	margin-left: 10px;
+}
+
+ul a:hover{
+	color: #ffa200;
+}
+
+.introduction{
+	margin-top: 35px;
+}
+
+.introduction p{
+	font-size: 18px;
 	text-decoration: bold;
+	margin-top: 10px;
 }
 
-#introduction{
-	margin-top: 30px;
-
+h2 {
+	text-align: center;
+	margin-top: 40px;
+	color: #0c76e8;
 }
 
-p{
-	margin-top 10px;
+.cpcontent h3 {
+	color: #ffa200;
+	text-align: center;
 }
 
+.pp1content h3 {
+	margin-top: 20px;
+	color: #ffa200;
+	text-align: center;
+}
 
-#footer {
-	clear: both;
-	background-color: #d7dee0;
+.pp2content h3 {
+	margin-top: 35px;
+	color: #ffa200;
+	text-align: center;
+}
+
+.link p {
+	text-decoration: underline;
+	color: #0c76e8;
 	text-align: right;
 }
+
+
+.displayed {
+	margin-top: 20px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#email p{
+	text-align: center;
+}
+
