@@ -88,9 +88,13 @@ h2 {
 }
 
 .link p {
-	text-decoration: underline;
+	text-decoration: none;
 	color: #0c76e8;
 	text-align: right;
+}
+
+.link p a:hover{
+	color: #ffa200;
 }
 
 
@@ -105,3 +109,18 @@ h2 {
 	text-align: center;
 }
 
+.back-to-top {
+    position: fixed;
+    bottom: 2em;
+    right: 25px;
+    text-decoration: none;
+    color: #0c76e8;
+    background-color: white;
+    font-size: 20px;
+    padding: 1em;
+    display: none;
+}
+
+.back-to-top:hover {    
+	color: #ffa200;
+}

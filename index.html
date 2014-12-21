@@ -3,6 +3,26 @@
 <head>
 	<title> Richard's Portfolio </title>
 	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+	<script>
+	$(function() {
+	  $('a[href*=#]:not([href=#])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html,body').animate({
+	          scrollTop: target.offset().top
+	        }, 1000);
+	        return false;
+	      }
+	    }
+	  });
+	});
+	</script>
 </head>
 <body>
 	<div id="container">
@@ -87,8 +107,8 @@ In mundi ancillae efficiantur per, at per accusam tractatos. Saepe virtute ex ea
 		<h2>Contact me</h2>
 		<div class="links">
 			<ul>
-				<li><a href="linkedin.com">My LinkedIn</a></li>
-				<li><a href="github.com">My GitHub</a></li>
+				<li><a href="linkedin.com" target="_blank">My LinkedIn</a></li>
+				<li><a href="github.com" target="_blank">My GitHub</a></li>
 			</ul>
 		</div>
 		<div id="email">
@@ -96,5 +116,27 @@ In mundi ancillae efficiantur per, at per accusam tractatos. Saepe virtute ex ea
 		</div>
 		</div>
 	</div>
+	<a href="#" class="back-to-top">Back to Top</a>
+
+        <script>            
+			jQuery(document).ready(function() {
+				var offset = 220;
+				var duration = 500;
+				jQuery(window).scroll(function() {
+					if (jQuery(this).scrollTop() > offset) {
+						jQuery('.back-to-top').fadeIn(duration);
+					} else {
+						jQuery('.back-to-top').fadeOut(duration);
+					}
+				});
+				
+				jQuery('.back-to-top').click(function(event) {
+					event.preventDefault();
+					jQuery('html, body').animate({scrollTop: 0}, duration);
+					return false;
+				})
+			});
+		</script>
+	
 </body>
 </html>
