@@ -87,6 +87,12 @@ h2 {
 	text-align: center;
 }
 
+.pp3content h3 {
+	margin-top: 35px;
+	color: #ffa200;
+	text-align: center;
+}
+
 .link p {
 	text-decoration: none;
 	color: #0c76e8;
@@ -101,6 +107,11 @@ h2 {
 .displayed {
 	margin-top: 20px;
 	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.contentabout p {
 	margin-left: auto;
 	margin-right: auto;
 }
