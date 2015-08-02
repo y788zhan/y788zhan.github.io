@@ -1,142 +1,267 @@
 <!doctype html>
 <html>
 <head>
-	<title> Richard's Portfolio </title>
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="revampstyle.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script>
-	$(function() {
-	  $('a[href*=#]:not([href=#])').click(function() {
-	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-
-	      var target = $(this.hash);
-	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-	      if (target.length) {
-	        $('html,body').animate({
-	          scrollTop: target.offset().top
-	        }, 1000);
-	        return false;
-	      }
-	    }
-	  });
-	});
+		$(document).ready(function () {
+			$(".tab-content img").hover(
+				function() {
+					$(this).fadeTo(400, 0.6);
+				}, function() {
+					$(this).css("opacity", "1");
+			});
+			$(window).resize(function () {
+				if ($(window).width() < 646) {
+					$(".nav-tabs").addClass("nav-stacked");
+				} else {
+					$(".nav-tabs").removeClass("nav-stacked");
+				}
+			});
+			$(function() {
+				$('.navbar-nav a[href*=#]:not([href=#])').click(function() {
+					if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+						var target = $(this.hash);
+						target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+						if (target.length) {
+							$('html,body').animate({
+								scrollTop: target.offset().top
+							}, 1000);
+							return false;
+						}
+					}
+				});
+			});
+			$('.navbar-nav a').hover(
+				function() {
+					$(this).fadeTo(0, 0.5);
+				}, function() {
+					$(this).css("opacity", "1");
+			});
+			$(window).scroll(function () {
+				var scroll = $(window).scrollTop();
+				var limit = $("header").height();
+				if (scroll > limit) {
+					$('.navbar').css("display", "none");
+					$('body').css("background-image", "url('/MyApp/images/blur.jpg')");
+				} else {
+					$('.navbar').css("display", "inline");
+					$('body').css("background-image", "url('/MyApp/images/sharp.jpg')");
+				}
+			});
+			$(".cell").css("display", "block");
+			$('.company').hover(
+				function () {
+					$('.company_property').css("display", "inline-block");
+				}, function () {
+					$('.company_property').css("display", "none");
+			});
+		});
 	</script>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<div id="title"> <h1> Richard Zhang </h1> </div>
-			<div id="subtitle"> <h3> Portfolio </h3> </div>
-		</div>
-		<div id="main">
-			<ul class="links">
-				<li><a href="#CurrentProjects">   Current Projects   </a></li>
-				<li><a href="#PastProjects"> Past Projects </a></li>
-				<li><a href="#About">   About   </a></li>
-				<li><a href="#Contact">   Contact   </a></li>
-			</ul>
-		</div>
-		
-		<hr style="border: none; height: 1px; width: 550px; color: #3498db; background: #3498db;"/>
-		
-		<div class="introduction">
-			<p>Hello, I am Richard Zhang, and welcome to my portfolio.</p>
-			<p>This is a web page dedicated to some of the projects I have done in the past and ones that I am currently working on.</p>
-		</div>
-		
-	
-		<div id="CurrentProjects">
-			<div class="heading2"><h2>Current Projects</h2></div>
-			<div class="cpcontent">
-				<h3>University Program CS Program Search Algorithm</h3>
-				<img class="displayed" src="http://racket-lang.org/logo-and-text.png" />
-				<h4>Description:</h4>
-				<p>This program uses the language Scheme to achieve a search algorithm for data collected on the computer science programs from several universities in Ontario. The algorithm allows users to search for CS programs based on their own custom criteria, such as admission average, co-operative education availability, etc. </p>
-				<div class="link">
-				<p><a href="https://github.com/y788zhan/Racket-cs-program-search" target='_blank' title="OpenDoc"> Code in progress</a></p>
-				</div>
+	<div class="background"></div>
+	<header>
+		<h1 id="title">Lorem ipsum</h1>
+		<h3>Dolor si amet</h3>
+	</header>
+		 
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 			</div>
-			<div class="cpcontent">
-				<h3>Addition Exercise Generator Using VBA</h3>
-				<img class ="displayed" src="http://safa30ti.com/wp-content/uploads/logo_vba-2.png" />
-				<h4>Description:</h4>
-				<p>This program uses VBA to generate a user-customized number of addition questions, and includes a timer to record the time lapsed for the user to complete the questions. Results such as timer per question, and percentage correct are stored on another sheet.</p>
-				<div class="link">
-				<p><a href="https://github.com/y788zhan/VBA-project" target='_blank' title="OpenDoc"> Code in progress</a></p>
-				</div>
+			<div class="collapse navbar-collapse navHeaderCollapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#projects" class="mylink"><strong>Projects</strong></a></li>
+					<li><a href="#experience" class="mylink"><strong>Experience</strong></a></li>
+					<li><a href="#about" class="mylink"><strong>About Me</strong></a></li>
+					<li><a href="#contact" class="mylink"><strong>Contact Me</strong></a></li>
+				</ul>
 			</div>
 		</div>
-		
-		<hr style="border: none; height: 1px; width: 550px; color: #3498db; background: #3498db;"/>
-			
-		<div id="PastProjects">
-			<div class="heading3"><h2>Past Projects</h2></div>
-			<div class="pp1content">
-				<h3>Study of Relationship between Circular Cone Angle and Drag in Fluid Media</h3>
-				<img class="displayed" src="http://www.aerospaceweb.org/question/aerodynamics/drag/drag-cone.jpg" />
-				<h4>Description:</h4>
-				<p>This essay explores the relationship between circular cones' half angle and their drag coefficient in viscous media. Cones of different half angles are made using plaster, and are dropped in water, sucrose solution, and isopropyl alcohol so study their free-fall motion.</p>
-				<div class="link">
-				<p><a href="https://www.scribd.com/doc/251179005/Extended-Essay-with-Appendices" target='_blank' title="OpenDoc">Open Doc</a></p>
-				</div>
-			</div>
-			
-			<div class="pp2content">
-				<h3>Disruptive New Venture Concept: Time Block</h3>
-				<img class="displayed" src='http://s17.postimg.org/awnz3frqz/New_Venture_Logo1.jpg' />
-				<h4>Description:</h4>
-				<p>Time Block is a time-management app that focuses on calendar-sharing and interactions between users, combining the concepts of online planners and social media. The application is designed for university students, as they have busy and variable schedules and high demand for convenient communication among their peers.</p>
-				<div class="link">
-				<p><a href="https://www.scribd.com/doc/250944846/New-Venture-Time-Block" target='_blank' title="OpenDoc">See venture outline</a></p>
-				</div>
-			</div>
-			
-			<div class="pp3content">
-				<h3>Le speech pour le concours d'art oratoire</h3>
-				<img class="displayed" src='http://ab.cpf.ca/wp-content/blogs.dir/1/files/Concours.png' />
-				<h4>Description:</h4>
-				<p>In this speech, I talk about the emotions and insights associated with entering adulthood, including the daunting notion of taking on more responsibilities, as well as the excitement of having greater opportunities, and much more.</p>
-				<div class="link">
-				<p><a href="https://www.scribd.com/doc/250944691/Concours-d-art-oratoire" target='_blank' title="OpenDoc">Open Doc</a></p>
-				</div>
-			</div>
-		</div>
-			
-			
-		<hr style="border: none; height: 1px; width: 550px; color: #3498db; background: #3498db;"/>
-			
-		<div id="About">
-			<div class="contentabout">
-				<h2>About me</h2>
-					<p>I am a first year university student studying mathematics at the University of Waterloo and business administration at Wilfrid Laurier University. I have a passion for math, science, as well as economics. I have been programming for nearly half a year, and is knowledgeable in Scheme, Python, VBA, HMTL and CSS.</p>
-					<p>I love cooking, dance, travelling, and overall, experiencing new things.
-			</div>
-		</div>
-		
-		<hr style="border: none; height: 1px; width: 550px; color: #3498db; background: #3498db;"/>
-		
-		<div id="Contact">
-			<div class="contactcontent">
-				<h2>Contact me</h2>
-					<div class="links">
-						<ul>
-							<li><a href="http://ca.linkedin.com/pub/yuchi-zhang/ab/274/41" target="_blank">My LinkedIn</a></li>
-							<li><a href="https://github.com/y788zhan" target="_blank">My GitHub</a></li>
+	</nav>
+	<div class="page-content-part1">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6 container projects clearfix" id="projects">
+				<h2>Projects</h2>
+				<ul class="nav nav-tabs" id="projtabs">
+					<li role="presentation" class="active"><a href="#proj1" aria-controls="proj1" role="tab" data-toggle="tab">VBA Addition & Subtration Generator</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">2048
+							<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li role="presentation"><a aria-controls="proj2" role="tab" data-toggle="tab" href="#proj2">Ruby</a></li>
+							<li role="presentation"><a aria-controls="proj2a" role="tab" data-toggle="tab" href="#proj2a">React.js</a></li>
 						</ul>
+					</li>
+					<li role="presentation"><a href="#proj3" aria-controls="proj3" role="tab" data-toggle="tab">JS Web Automation</a></li>
+					<li role="presentation"><a href="#proj4" aria-controls="proj4" role="tab" data-toggle="tab">JS Animation</a></li>
+				</ul>
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade in active" id="proj1">
+						<a href="https://github.com/y788zhan/VBA-project" target="_blank" class="projlink">
+							<img src="/MyApp/images/Project/VBA.jpg"></img>
+						</a>
+						<p><strong>Languages: </strong>Lorem, Ipsum</p>
+						<p><strong>Description: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. Curabitur vel libero dapibus arcu pretium scelerisque.</p>
 					</div>
-				
-				<div id="email">
-					<p><strong>Email: </strong>y788zhan@uwaterloo.ca</p>
+					<div role="tabpanel" class="tab-pane fade" id="proj2">
+						<a href="https://github.com/y788zhan/ruby-2048" target="_blank" class="projlink">
+							<img src="/MyApp/images/Project/2048.jpg"></img>
+						</a>
+						<p><strong>Languages: </strong>Lorem, Ipsum</p>
+						<p><strong>Description: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. Curabitur vel libero dapibus arcu pretium scelerisque.</p>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="proj2a">
+						<a href="#" target="_blank" class="projlink">
+							<img src="http://images4.fanpop.com/image/quiz/689000/689423_1315079585116_350_300.jpg"></img>
+						</a>
+						<p><strong>Languages: </strong>Lorem, Ipsum</p>
+						<p><strong>Description: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. Curabitur vel libero dapibus arcu pretium scelerisque.</p>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="proj3">
+							<img class="company" src="/MyApp/images/Project/automate0.jpg">Text</img>
+						<p><strong>Languages: </strong>Lorem, Ipsum</p>
+						<p><strong>Description: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. Curabitur vel libero dapibus arcu pretium scelerisque.</p>
+						<h4 hidden class="company_property">*Company property</h4>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="proj4">
+						<a href="https://github.com/y788zhan/decaying-half-circle" target="_blank" class="projlink">
+							<img src="/MyApp/images/Project/animate.PNG"></img>
+						</a>
+						<p><strong>Languages: </strong>Lorem, Ipsum</p>
+						<p><strong>Description: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. Curabitur vel libero dapibus arcu pretium scelerisque.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+
+		<div class="hidden-md hidden-lg hidden-xl experience conatiner" id="experience">
+			<h2>Experience</h2>
+			<div class="row">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-8">
+					<ul class="events list-group">
+						<li class="list-group-item"><span class="badge">Time - Time</span>Kumon Math & Reading Centre</li>
+						<li class="list-group-item"><span class="badge">Time - Time</span>Xavier's First French Club</li>
+						<li class="list-group-item"><span class="badge">Time - Time</span>Formulating Change Inc.</li>
+					</ul>
+				</div>
+				<div class="col-sm-2"></div>
+			</div>
+		</div>
+
+		<div class="hidden-sm hidden-xs experience container" id="experience">
+			<h2>Experience</h2>
+			<div class="row topline">
+				<div class="col-md-2"></div>
+				<div class="col-md-8 timeline row">
+					<ol class="events">
+						<li id="event1">Kumon Math & Reading Centre
+							<span class="details">
+								Time - Time
+								<br>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex.
+							</span>
+						</li>
+						<li id="event2">Xavier's First French Club
+							<span class="details">
+								Time - Time
+								<br>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex.
+							</span>
+						</li>
+						<li id="event3">Formulating Change Inc.
+							<span class="details">
+								Time - Time
+								<br>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex.
+							</span>
+						</li>
+					</ol>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row years">
+				<div class="col-md-2"></div>
+				<div class="col-md-8 row year-container">
+					<div class="year">
+						<p>2013</p>
+					</div>
+					<div class="year">
+						<p>2014</p>
+					</div>
+					<div class="year">
+						<p>2015</p>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+
+		<div class="about container" id="about">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>About Me</h2>
+					<p class="information">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. 
+				       Curabitur vel libero dapibus arcu pretium scelerisque. Ut ullamcorper bibendum libero sit amet molestie. Suspendisse nisi neque, posuere nec libero nec, mollis tincidunt.</p>
+				</div>
+			</div>
+			<br></br>
+			<div class="row">
+				<div class="col-md-6">
+					<h4>What I do</h4>
+					<p class="information">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. 
+				       Curabitur vel libero dapibus arcu pretium scelerisque. Ut ullamcorper bibendum libero sit amet molestie. Suspendisse nisi neque, posuere nec libero nec, mollis tincidunt.</p>
+				</div>
+				<div class="col-md-6">
+					<h4>What motivates me</h4>
+					<p class="information">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. 
+				       Curabitur vel libero dapibus arcu pretium scelerisque. Ut ullamcorper bibendum libero sit amet molestie. Suspendisse nisi neque, posuere nec libero nec, mollis tincidunt.</p>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<a href="#" class="back-to-top">Back to Top</a>
-
-        <script>            
+		
+		<div class="contact container" id="contact">
+			<h2>Contact Me</h2>
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-2">
+					<a href="http://ca.linkedin.com/in/y788zhan" target="_blank"><h4 class="contact-link">LinkedIn</h4></a>
+				</div>
+				<div class="col-md-2">
+					<a href="https://github.com/y788zhan" target="_blank"><h4 class="contact-link">GitHub</h4></a>
+				</div>
+				<div class="col-md-2">
+					<a href="/MyApp/Files/pdf.pdf" target="_blank"><h4 class="contact-link">My Resume</h4></a>
+				</div>
+				<div class="col-md-3"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-3 contact-info">
+					<span><strong>Email: </strong><p>y788zhan@uwaterloo.ca</p></span>
+				</div>
+				<div class="col-md-3 contact-info">
+					<span><strong>Phone: </strong><p>416-418-4801</p></span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="backtotop">
+			<a href="#" class="back-to-top" style="color: white;">Back to Top</a>
+		</div>
+		
+		<script>            
 			jQuery(document).ready(function() {
 				var offset = 220;
 				var duration = 500;
@@ -146,8 +271,7 @@
 					} else {
 						jQuery('.back-to-top').fadeOut(duration);
 					}
-				});
-				
+				});		
 				jQuery('.back-to-top').click(function(event) {
 					event.preventDefault();
 					jQuery('html, body').animate({scrollTop: 0}, duration);
@@ -155,6 +279,6 @@
 				})
 			});
 		</script>
-	
+	</div>
 </body>
 </html>
