@@ -1,15 +1,21 @@
 <!doctype html>
 <html>
 <head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<link rel="stylesheet" href="bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="revampstyle.css" />
+	<link rel="shortcut icon" type="image/png" href="/MyApp/images/psi.png" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script>
 		$(document).ready(function () {
+			$("#title").fadeIn(1500, function() {
+				$("#subtitle").fadeIn(1000);
+			});
 			$(".tab-content img").hover(
 				function() {
-					$(this).fadeTo(400, 0.6);
+					$(this).fadeTo(400, 0.7);
 				}, function() {
 					$(this).css("opacity", "1");
 			});
@@ -51,21 +57,27 @@
 					$('body').css("background-image", "url('/MyApp/images/sharp.jpg')");
 				}
 			});
-			$(".cell").css("display", "block");
 			$('.company').hover(
 				function () {
-					$('.company_property').css("display", "inline-block");
+					$('.company_property').slideDown("slow");
 				}, function () {
 					$('.company_property').css("display", "none");
 			});
+
+			$(".event").mouseenter(function () {
+				$(".about").animate({'margin-top': '120px'}, 500);
+			});
+			$('.experience').mouseleave(function () {
+				$(".about").animate({'margin-top': '70px'}, 500);
+			});
 		});
 	</script>
+	<title>Richard Zhang | Portfolio</title>
 </head>
 <body>
-	<div class="background"></div>
 	<header>
-		<h1 id="title">Lorem ipsum</h1>
-		<h3>Dolor si amet</h3>
+		<h1 id="title">How Infinite</h1>
+		<h3 id="subtitle">In Faculty</h3>
 	</header>
 		 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -81,130 +93,196 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#projects" class="mylink"><strong>Projects</strong></a></li>
 					<li><a href="#experience" class="mylink"><strong>Experience</strong></a></li>
-					<li><a href="#about" class="mylink"><strong>About Me</strong></a></li>
-					<li><a href="#contact" class="mylink"><strong>Contact Me</strong></a></li>
+					<li><a href="#about" class="mylink"><strong>About</strong></a></li>
+					<li><a href="#contact" class="mylink"><strong>Contact</strong></a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<div class="page-content-part1">
-		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6 container projects clearfix" id="projects">
-				<h2>Projects</h2>
-				<ul class="nav nav-tabs" id="projtabs">
-					<li role="presentation" class="active"><a href="#proj1" aria-controls="proj1" role="tab" data-toggle="tab">VBA Addition & Subtration Generator</a></li>
-					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">2048
-							<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li role="presentation"><a aria-controls="proj2" role="tab" data-toggle="tab" href="#proj2">Ruby</a></li>
-							<li role="presentation"><a aria-controls="proj2a" role="tab" data-toggle="tab" href="#proj2a">React.js</a></li>
-						</ul>
-					</li>
-					<li role="presentation"><a href="#proj3" aria-controls="proj3" role="tab" data-toggle="tab">JS Web Automation</a></li>
-					<li role="presentation"><a href="#proj4" aria-controls="proj4" role="tab" data-toggle="tab">JS Animation</a></li>
-				</ul>
-				<div class="tab-content">
-					<div role="tabpanel" class="tab-pane fade in active" id="proj1">
-						<a href="https://github.com/y788zhan/VBA-project" target="_blank" class="projlink">
-							<img src="/MyApp/images/Project/VBA.jpg"></img>
-						</a>
-						<p><strong>Languages: </strong>Lorem, Ipsum</p>
-						<p><strong>Description: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. Curabitur vel libero dapibus arcu pretium scelerisque.</p>
-					</div>
-					<div role="tabpanel" class="tab-pane fade" id="proj2">
-						<a href="https://github.com/y788zhan/ruby-2048" target="_blank" class="projlink">
-							<img src="/MyApp/images/Project/2048.jpg"></img>
-						</a>
-						<p><strong>Languages: </strong>Lorem, Ipsum</p>
-						<p><strong>Description: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. Curabitur vel libero dapibus arcu pretium scelerisque.</p>
-					</div>
-					<div role="tabpanel" class="tab-pane fade" id="proj2a">
-						<a href="#" target="_blank" class="projlink">
-							<img src="http://images4.fanpop.com/image/quiz/689000/689423_1315079585116_350_300.jpg"></img>
-						</a>
-						<p><strong>Languages: </strong>Lorem, Ipsum</p>
-						<p><strong>Description: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. Curabitur vel libero dapibus arcu pretium scelerisque.</p>
-					</div>
-					<div role="tabpanel" class="tab-pane fade" id="proj3">
-							<img class="company" src="/MyApp/images/Project/automate0.jpg">Text</img>
-						<p><strong>Languages: </strong>Lorem, Ipsum</p>
-						<p><strong>Description: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. Curabitur vel libero dapibus arcu pretium scelerisque.</p>
-						<h4 hidden class="company_property">*Company property</h4>
-					</div>
-					<div role="tabpanel" class="tab-pane fade" id="proj4">
-						<a href="https://github.com/y788zhan/decaying-half-circle" target="_blank" class="projlink">
-							<img src="/MyApp/images/Project/animate.PNG"></img>
-						</a>
-						<p><strong>Languages: </strong>Lorem, Ipsum</p>
-						<p><strong>Description: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. Curabitur vel libero dapibus arcu pretium scelerisque.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3"></div>
-		</div>
 
-		<div class="hidden-md hidden-lg hidden-xl experience conatiner" id="experience">
-			<h2>Experience</h2>
+	<div class="page-content">
+		<div class="container">
 			<div class="row">
-				<div class="col-sm-2"></div>
-				<div class="col-sm-8">
-					<ul class="events list-group">
-						<li class="list-group-item"><span class="badge">Time - Time</span>Kumon Math & Reading Centre</li>
-						<li class="list-group-item"><span class="badge">Time - Time</span>Xavier's First French Club</li>
-						<li class="list-group-item"><span class="badge">Time - Time</span>Formulating Change Inc.</li>
+				<div class="col-md-1"></div>
+				<div class="col-md-10 projects clearfix center-block" id="projects">
+					<h2>Side Projects</h2>
+					<ul class="nav nav-tabs" id="projtabs">
+						<li role="presentation" class="active"><a href="#proj1" aria-controls="proj1" role="tab" data-toggle="tab">VBA Addition & Subtration Generator</a></li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">2048
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li role="presentation"><a aria-controls="proj2" role="tab" data-toggle="tab" href="#proj2">Ruby</a></li>
+								<li role="presentation"><a aria-controls="proj2a" role="tab" data-toggle="tab" href="#proj2a">ReactJS</a></li>
+							</ul>
+						</li>
+						<li role="presentation"><a href="#proj3" aria-controls="proj3" role="tab" data-toggle="tab">JS Web Automation</a></li>
+						<li role="presentation"><a href="#proj4" aria-controls="proj4" role="tab" data-toggle="tab">JS Animation</a></li>
 					</ul>
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="proj1">
+							<a href="https://github.com/y788zhan/VBA-project" target="_blank" class="projlink">
+								<img src="/MyApp/images/VBA.PNG"/>
+							</a>
+							<p><strong>Languages: </strong>VBA</p>
+							<p><strong>Description: </strong>This program generates up to 200 random addition and subtraction exercises, and includes a timer and a score calculator. It also keeps records of user performance and draws graphs to track progress.</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="proj2">
+							<a href="https://github.com/y788zhan/ruby-2048" target="_blank" class="projlink">
+								<img src="/MyApp/images/2048.PNG"/>
+							</a>
+							<p><strong>Languages: </strong>Ruby</p>
+							<p><strong>Description: </strong>A simple simulator of the 2048 game. Runs in the command shell.</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="proj2a">
+							<a href="#" target="_blank" class="projlink">
+								<img src="/MyApp/images/react.PNG"/>
+							</a>
+							<p><strong>Languages: </strong>Javascript, HTML5, CSS3</p>
+							<p><strong>Description: </strong>A simple simulator of the 2048 game, implemented in Javascript and rendered using React.js.</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="proj3">
+							<h4 hidden class="company_property">*Company property</h4>
+							<img class="company" src="/MyApp/images/automate.PNG"/>
+							<p><strong>Languages: </strong>Javascript, HTML5</p>
+							<p><strong>Description: </strong>This program consists of a Javascript template that automates the website testing entailed in the donor portal and charity portal of Formulating Change Inc, and a simple interface made with HTML that fills the template with the tester's custom test values. The script primarily automates form testing, and receives success/error messages.</p>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="proj4">
+							<a href="https://github.com/y788zhan/decaying-half-circle" target="_blank" class="projlink">
+								<img src="/MyApp/images/animate.PNG"/>
+							</a>
+							<p><strong>Languages: </strong>Javscript, HTML5, CSS3</p>
+							<p><strong>Description: </strong>A simple program that uses setInterval and mathematical equations to animate the falling motion of balls with decaying radius.</p>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-2"></div>
+				<div class="col-md-1"></div>
 			</div>
 		</div>
 
-		<div class="hidden-sm hidden-xs experience container" id="experience">
-			<h2>Experience</h2>
-			<div class="row topline">
-				<div class="col-md-2"></div>
-				<div class="col-md-8 timeline row">
-					<ol class="events">
-						<li id="event1">Kumon Math & Reading Centre
-							<span class="details">
-								Time - Time
-								<br>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex.
-							</span>
-						</li>
-						<li id="event2">Xavier's First French Club
-							<span class="details">
-								Time - Time
-								<br>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex.
-							</span>
-						</li>
-						<li id="event3">Formulating Change Inc.
-							<span class="details">
-								Time - Time
-								<br>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex.
-							</span>
-						</li>
-					</ol>
+		<div id="experience">
+			<div class="hidden-md hidden-lg hidden-xl experience conatiner" id="experience-mobile">
+				<h2>Experience</h2>
+				<div class="row">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-8">
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Kumon Math & Reading Centre</a>
+									</h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<span class="time">Feb 2013 - Aug 2014</span>
+										<br>
+										<ul class="exp-desc-container">
+											<li class="exp-desc">Assessed students' work and taught mathematical concepts</li>
+											<li class="exp-desc">Collected over 200 students' information and manaaged student performance in Kumon CMS</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Xavier's First French Club</a>
+									</h4>
+								</div>
+								<div id="collapseTwo" class="panel-collapse collapse">
+									<div class="panel-body">
+										<span class="time">Dec 2014 - June 2015</span>
+										<br>
+										<ul class="exp-desc-container">
+											<li class="exp-desc">Founded St. Francis Xavier Secondary School's first ever French club</li>
+											<li class="exp-desc">Helped students with French schoolwork, conducted French related games and activities</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Formulating Change Inc.</a>
+									</h4>
+								</div>
+								<div id="collapseThree" class="panel-collapse collapse">
+									<div class="panel-body">
+										<span class="time">May 2015 - Aug 2015</span>
+										<br>
+										<ul class="exp-desc-container">
+											<li class="exp-desc">Worked as support and quality associate at Formulating Change Inc</li>
+											<li class="exp-desc">Conducted extensive website testing and elevated priority issues</li>
+											<li class="exp-desc">Responded to client concerns and problems</li>
+											<li class="exp-desc">Worked with: LiveEngage, Axosoft, Salesforce, Google Analytics</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2"></div>
 				</div>
-				<div class="col-md-2"></div>
 			</div>
-			<div class="row years">
-				<div class="col-md-2"></div>
-				<div class="col-md-8 row year-container">
-					<div class="year">
-						<p>2013</p>
+
+			<div class="hidden-sm hidden-xs experience container" id="experience-large-screen">
+				<h2>Experience</h2>
+				<div class="row topline">
+					<div class="col-md-2"></div>
+					<div class="col-md-8 timeline row">
+						<ol class="events">
+							<li class="event" id="event1"><span class="event-title">Kumon Math & Reading Centre</span>
+								<span class="details">
+									<span class="time">Feb 2013 - Aug 2014</span>
+									<br>
+									<ul class="exp-desc-container">
+										<li class="exp-desc">Assessed students' work and taught mathematical concepts</li>
+										<li class="exp-desc">Collected over 200 students' information and manaaged student performance in Kumon CMS</li>
+									</ul>
+								</span>
+							</li>
+							<li class="event" id="event2"><span class="event-title">Xavier's First French Club</span>
+								<span class="details">
+									<span class="time">Dec 2014 - June 2015</span>
+									<br>
+									<ul class="exp-desc-container">
+										<li class="exp-desc">Founded St. Francis Xavier Secondary School's first ever French club</li>
+										<li class="exp-desc">Helped students with French schoolwork, conducted French related games and activities</li>
+									</ul>
+								</span>
+							</li>
+							<li class="event" id="event3"><span class="event-title">Formulating Change Inc.</span>
+								<span class="details">
+									<span class="time">May 2015 - Aug 2015</span>
+									<br>
+									<ul class="exp-desc-container">
+										<li class="exp-desc">Worked as support and quality associate at Formulating Change Inc</li>
+										<li class="exp-desc">Conducted extensive website testing and elevated priority issues</li>
+										<li class="exp-desc">Responded to client concerns and problems</li>
+										<li class="exp-desc">Worked with: LiveEngage, Axosoft, Salesforce, Google Analytics</li>
+									</ul>
+								</span>
+							</li>
+						</ol>
 					</div>
-					<div class="year">
-						<p>2014</p>
-					</div>
-					<div class="year">
-						<p>2015</p>
-					</div>
+					<div class="col-md-2"></div>
 				</div>
-				<div class="col-md-2"></div>
+				<div class="row years">
+					<div class="col-md-2"></div>
+					<div class="col-md-8 row year-container">
+						<div class="year">
+							<p>2013</p>
+						</div>
+						<div class="year">
+							<p>2014</p>
+						</div>
+						<div class="year">
+							<p>2015</p>
+						</div>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
 			</div>
 		</div>
 
@@ -212,21 +290,18 @@
 			<div class="row">
 				<div class="col-md-12">
 					<h2>About Me</h2>
-					<p class="information">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. 
-				       Curabitur vel libero dapibus arcu pretium scelerisque. Ut ullamcorper bibendum libero sit amet molestie. Suspendisse nisi neque, posuere nec libero nec, mollis tincidunt.</p>
+					<p class="information">Hi, I'm Richard, and I'm a 2A Computer Science/Business Admnistration Double Degree student at University of Waterloo and Wilfrid Laurier University. I'm highly logical, and have a strong aptitude for analytical thinking. This has made me good at identifying and solving problems. As a result, I enjoy subjects such as math, physics, and computer science a lot. I thought I was going to be a physicist before I started doing computer science.</p>
 				</div>
 			</div>
 			<br></br>
 			<div class="row">
 				<div class="col-md-6">
 					<h4>What I do</h4>
-					<p class="information">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. 
-				       Curabitur vel libero dapibus arcu pretium scelerisque. Ut ullamcorper bibendum libero sit amet molestie. Suspendisse nisi neque, posuere nec libero nec, mollis tincidunt.</p>
+					<p class="information">I have worked with HTML5, CSS3, Javascript, Boostrap, jQuery, React.js, Ruby, C and Scheme. I am currently exploring front end development as a hobby. I have knowledge in website testing and I am familiar with software development life cycles. From my work experiences, I've learned what entails in a functional, user-friendly and robust product.</p>
 				</div>
 				<div class="col-md-6">
 					<h4>What motivates me</h4>
-					<p class="information">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu ante luctus quam iaculis suscipit nec eu ex. Aenean varius sem lectus, vel fermentum mi aliquam eget. 
-				       Curabitur vel libero dapibus arcu pretium scelerisque. Ut ullamcorper bibendum libero sit amet molestie. Suspendisse nisi neque, posuere nec libero nec, mollis tincidunt.</p>
+					<p class="information">I have always had a thirst for knowledge&mdash;I constantly wish to learn more and have more experience working with various solutions. I also seek to do things more efficiently and effectively, and perfect processes to create more value.</p>
 				</div>
 			</div>
 		</div>
@@ -242,34 +317,35 @@
 					<a href="https://github.com/y788zhan" target="_blank"><h4 class="contact-link">GitHub</h4></a>
 				</div>
 				<div class="col-md-2">
-					<a href="/MyApp/Files/pdf.pdf" target="_blank"><h4 class="contact-link">My Resume</h4></a>
+					<a href="/MyApp/resume.pdf" target="_blank"><h4 class="contact-link">My Resume</h4></a>
 				</div>
 				<div class="col-md-3"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-3 contact-info">
-					<span><strong>Email: </strong><p>y788zhan@uwaterloo.ca</p></span>
+					<strong>Email: </strong><p>y788zhan@uwaterloo.ca</p>
 				</div>
 				<div class="col-md-3 contact-info">
-					<span><strong>Phone: </strong><p>416-418-4801</p></span>
+					<strong>Phone: </strong><p>416-418-4801</p>
 				</div>
+				<div class="col-md-3"></div>
 			</div>
 		</div>
 		
 		<div class="backtotop">
-			<a href="#" class="back-to-top" style="color: white;">Back to Top</a>
+			<a href="#" class="back-to-top" style="display: none; color: white;">Back to Top</a>
 		</div>
 		
 		<script>            
-			jQuery(document).ready(function() {
-				var offset = 220;
+			$(document).ready(function() {
+				var offset = $("header").height();
 				var duration = 500;
-				jQuery(window).scroll(function() {
-					if (jQuery(this).scrollTop() > offset) {
-						jQuery('.back-to-top').fadeIn(duration);
+				$(window).scroll(function() {
+					if ($(window).scrollTop() > offset) {
+						$('.back-to-top').fadeIn(duration);
 					} else {
-						jQuery('.back-to-top').fadeOut(duration);
+						$('.back-to-top').fadeOut(duration);
 					}
 				});		
 				jQuery('.back-to-top').click(function(event) {
