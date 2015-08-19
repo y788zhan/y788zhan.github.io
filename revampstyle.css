@@ -1,3 +1,4 @@
+
 body {
 	padding-top: 40px;
 	background-color: #303030;
@@ -12,12 +13,25 @@ header {
 	height: 100vh;
 }
 
+.mylink strong{
+	font-size: 20px;
+}
+
+.navbar-collapse {
+	margin-top: 20px;
+	margin-right: 20px !important;
+}
+
 h1 {
 	text-align: center;
-	font-size: 100px;
+	font-size: 120px;
 	position: relative;
-	top: 35%;
+	top: 30%;
 	color: white;
+}
+
+#title, #subtitle {
+	display: none;
 }
 
 .navbar {
@@ -30,18 +44,22 @@ h1 {
 	font-size: 16px !important;
 }
 
+.navbar-inverse .navbar-collapse{
+	border-color: transparent !important;
+}
+
 .projects {
 	margin-top: 50px;
 	margin-left: 10px;
 	margin-right: 10px;
 }
 
-.projects h2 {
+.projects h2, p {
 	color: white;
 }
 
-.projects p {
-	color: white;
+#projtabs {
+	margin-top: 20px;
 }
 
 .experience {
@@ -55,11 +73,17 @@ h1 {
 h2 {
 	text-align: center;
 	color: white;
+	font-size: 32px;
+	margin-bottom: 24px;
 }
 
 .tab-content img {
 	width: 100%;
-	max-height: 500px;
+	max-height: 700px;
+}
+
+.tab-content p {
+	margin-top: 15px;
 }
 
 h4 {
@@ -81,7 +105,11 @@ h4 {
 }
 
 .about {
-	margin-top: 50px;
+	margin-top: 70px;
+}
+
+.about h4 {
+	font-size: 20px;
 }
 
 .about p {
@@ -91,7 +119,7 @@ h4 {
 }
 
 .contact {
-	margin-top: 60px;
+	margin-top: 80px;
 }
 
 .contact span {
@@ -106,6 +134,7 @@ h4 {
 
 .contact-info {
 	margin-top: 30px;
+	text-align: center;
 }
 
 .contact strong {
@@ -187,14 +216,18 @@ ol > li::before {
 
 .details {
 	display: none;
+	width: 300px;
 	position: absolute;
-	left: -115px;
-	top: 90px;
+	left: -50px;
+	top: 10px;
 	padding: 15px;
 	border-radius: 3px;
 	border-right: 2px solid rgba(0,0,0,.1);
 	border-bottom: 2px solid rgba(0,0,0,.1);
-	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg); /*Chrome, IE*/
+    -webkit-transform-origin: 5px 5px; 
+    transform-origin: 5px 5px; /*Firefox*/
+    transform: rotate(45deg);
 	font: 12px arial;
 	background: #fff;
 }
@@ -264,17 +297,40 @@ h3 {
 	text-align: center;
 	color: white;
 	position: relative;
-	top: 45%;
-	font-size: 40px;
+	top: 40%;
+	font-size: 55px;
 }
 
-.form-group {
-	margin-left: 10px !important;
-	margin-right: 10px !important;
+.about .col-md-6 {
+	margin-top: 40px;
 }
 
-.list-group {
-	margin-left: 10px;
-	margin-right: 10px;
+.panel {
+	margin-left: 15px;
+	margin-right: 15px;
 }
 
+.company_property {
+	text-align: center;
+}
+
+.exp-desc, .time {
+	font-size: 14px;
+}
+
+.exp-desc-container {
+	margin-top: 5px;
+}
+
+.information {
+	font-size: 16px;
+}
+
+@media screen and (max-width: 650px) {
+	h1 {
+		font-size: 80px;
+	}
+	h3 {
+		font-size: 40px;
+	}
+}
